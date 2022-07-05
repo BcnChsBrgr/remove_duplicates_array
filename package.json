@@ -1,13 +1,20 @@
 {
   "name": "remove_duplicates_array",
   "version": "1.0.0",
-  "description": "",
+  "description": "array tools for remove duplicates",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "author": "",
+  "author": "Hin Ng <hinng0302@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BcnChsBrgr/remove_duplicates_array.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BcnChsBrgr/remove_duplicates_array/issues"
+  },
   "devDependencies": {
     "jest": "^28.1.2"
   }

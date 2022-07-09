@@ -7,7 +7,7 @@
 
 [![NPM](https://nodei.co/npm/@hinng/remove_duplicates_array.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/@hinng/remove_duplicates_array)
 
-<a href="https://lgtm.com/projects/g/BcnChsBrgr/remove_duplicates_array/alerts/"><img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/BcnChsBrgr/remove_duplicates_array.svg?logo=lgtm&logoWidth=18"/></a>
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/BcnChsBrgr/remove_duplicates_array.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/BcnChsBrgr/remove_duplicates_array/context:javascript)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/BcnChsBrgr/remove_duplicates_array.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/BcnChsBrgr/remove_duplicates_array/alerts/)
 
 This is the array that handle duplicate item, either objects are inside the array, or number inside the array.

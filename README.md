@@ -1,7 +1,7 @@
 <p>
     <h3 align="center">remove_duplicates_array</h3>
     <br>
-    <a href="https://github.com/BcnChsBrgr/remove_duplicates_array/issues">Report bug</a> |
+    <a href="https://github.com/BcnChsBrgr/remove_duplicates_array/issues/new?labels=bug">Report bug</a> |
     <a href="https://github.com/BcnChsBrgr/remove_duplicates_array/issues/new"> New feature</a> | <a href="https://github.com/BcnChsBrgr/remove_duplicates_array/blob/main/CHANGELOG.md">Change Log</a>
 </p>
 

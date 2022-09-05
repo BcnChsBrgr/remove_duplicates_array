@@ -6,7 +6,10 @@
   "scripts": {
     "test": "jest"
   },
-  "author": "Hin Ng <hinng0302@gmail.com>",
+  "author": {
+    "name": "Hin NG",
+    "email": "hinng0302@gmail.com"
+  },
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -17,5 +20,10 @@
   },
   "devDependencies": {
     "jest": "^28.1.2"
-  }
+  }, 
+  "keywords": [
+    "array",
+    "remove",
+    "duplicate"
+  ]
 }

@@ -7,14 +7,9 @@ notifications:
         on_success: never
         on_failure: change
 node_js:
-    - "lts/8"
-    - "lts/9"
-    - "10"
     - "12"
     - "15"
     - "16"
-    - "17"
-    - "18"
 cache:
     npm: true
 install:

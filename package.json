@@ -20,10 +20,13 @@
   },
   "devDependencies": {
     "jest": "^28.1.2"
-  }, 
+  },
   "keywords": [
     "array",
     "remove",
     "duplicate"
-  ]
+  ],
+  "dependencies": {
+    "jest-junit": "^14.0.1"
+  }
 }

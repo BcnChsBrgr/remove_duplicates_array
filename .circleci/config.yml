@@ -7,8 +7,14 @@ jobs:
         resource_class: small
         steps:
             - checkout
-            - run: node --version
-            - run: ls -a
+            - node/install-packages:
+              pkg-manager: npm
+            - run:
+              name: check node version
+              command: node --version
+            - run:
+              name: Run tests
+              command: npm test
 workflows:
     test-deploy:
         jobs:

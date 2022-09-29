@@ -7,8 +7,9 @@ jobs:
         resource_class: small
         steps:
             - checkout
-            - node/install-packages:
-                  pkg-manager: npm
+            - run:
+                  name: install node
+                  command: npm install
             - run:
                   name: check node version
                   command: node --version

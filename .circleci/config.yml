@@ -1,5 +1,8 @@
 version: 2.1
 
+obs:
+    node: circleci/node@5.0.3
+
 jobs:
     greeting:
         docker:
@@ -19,16 +22,15 @@ jobs:
             - run:
                   name: install node
                   command: ls -al
-    build:
+    Build:
         docker:
             - image: cimg/node:14.13.0
         resource_class: small
         steps:
-            - node/install-packages:
+            - node/install:
                   pkg-manager: npm
-            - run:
-                  name: test app
-                  command: npm test
+            - node/test:
+                  test-results-for: jest
 workflows:
     version: 2
     build_and_test:
@@ -37,6 +39,6 @@ workflows:
             - Fetch-Code:
                   requires:
                       - greeting
-            - build:
+            - Build:
                   requires:
                       - Fetch-Code

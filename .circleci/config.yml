@@ -24,10 +24,11 @@ jobs:
                   command: ls -al
     Build:
         docker:
-            - image: cimg/node:14.13.0
+            - image: cimg/base:stable
         resource_class: small
         steps:
-            - node/install-packages:
+            - run: ls -al
+            - node/install:
                   pkg-manager: npm
             - node/test:
                   test-results-for: jest
@@ -42,3 +43,7 @@ workflows:
             - Build:
                   requires:
                       - Fetch-Code
+            - test:
+                  jobs:
+                      - node/test:
+                            test-results-for: jest

@@ -27,7 +27,7 @@ jobs:
             - image: cimg/node:14.13.0
         resource_class: small
         steps:
-            - node/install:
+            - node/install-packages:
                   pkg-manager: npm
             - node/test:
                   test-results-for: jest

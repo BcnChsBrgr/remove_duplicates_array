@@ -23,7 +23,7 @@ jobs:
         steps:
             - node/install:
                   install-yarn: false
-                  node-version: "16.13"
+                  node-version: "14.13"
             - run: node --version
 workflows:
     test_my_app:
@@ -35,3 +35,5 @@ workflows:
             - install-node-example:
                   requires:
                       - Fetch-Code
+            - node/test:
+                  test-result-for: jest

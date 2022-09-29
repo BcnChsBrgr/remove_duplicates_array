@@ -27,8 +27,8 @@ jobs:
             - node/install-packages:
                   pkg-manager: npm
             - run:
-                  name: install node
-                  command: npm install
+                  name: test app
+                  command: npm test
 workflows:
     version: 2
     build_and_test:

@@ -39,7 +39,6 @@ workflows:
                   requires:
                       - Fetch-Code
             - node/test:
-                  resource_class: small
                   requires:
                       - install-node-example
                   test-results-for: jest

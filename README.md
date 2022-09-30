@@ -10,8 +10,12 @@
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/BcnChsBrgr/remove_duplicates_array.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/BcnChsBrgr/remove_duplicates_array/context:javascript)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/BcnChsBrgr/remove_duplicates_array.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/BcnChsBrgr/remove_duplicates_array/alerts/)
 [![Build Status](https://app.travis-ci.com/BcnChsBrgr/remove_duplicates_array.svg?branch=main)](https://app.travis-ci.com/BcnChsBrgr/remove_duplicates_array)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/BcnChsBrgr/remove_duplicates_array/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/BcnChsBrgr/remove_duplicates_array/tree/main)
 
 This is the array that handle duplicate item, either objects are inside the array, or number inside the array.
+
+To test this code you can see the test case in `test/array.test.js`,
+and use the `npm test` for trigger the jest
 
 ```javascript
 const removeArrayDuplicate = require("@hinng/remove_duplicates_array");

@@ -4,14 +4,16 @@ orbs:
 jobs:
     greeting:
         docker:
-            - image: cimg/base:stable
+            - image: "cimg/base:stable"
+        resource_class: small
         steps:
             - run:
                   name: greeting
                   command: echo 'hello world'
     Fetch-Code:
         docker:
-            - image: cimg/base:stable
+            - image: "cimg/base:stable"
+        resource_class: small
         steps:
             - checkout
             - run:
@@ -20,6 +22,7 @@ jobs:
     install-node-example:
         docker:
             - image: "cimg/base:stable"
+        resource_class: small
         steps:
             - node/install:
                   install-yarn: false
@@ -36,6 +39,7 @@ workflows:
                   requires:
                       - Fetch-Code
             - node/test:
+                  resource_class: small
                   requires:
                       - install-node-example
                   test-results-for: jest

@@ -28,7 +28,30 @@ jobs:
                   paths:
                       - node_modules
             - run: node --version
+    publish:
+        docker:
+            - image: "cimg/base:stable"
+        working_directory: ~/repo
+        resource_class: small
+        steps:
+            - checkout
+            - run:
+                  name: list all my files
+                  command: |
+                      ls -la
+            - node/install:
+                  install-yarn: false
+                  node-version: "14.13"
+            - run:
+                  name: install node_modules
+                  command: npm install
+            - run:
+                  name: Publish to NPM
+                  command: |
+                      npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+                      npm publish
 workflows:
+    version: 2
     test_my_app:
         jobs:
             - install-node-example
@@ -37,3 +60,6 @@ workflows:
                       - install-node-example
                   test-results-for: jest
                   test-results-path: junit.xml
+            - publish:
+                  requires:
+                      - node/test

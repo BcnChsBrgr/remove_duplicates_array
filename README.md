@@ -28,6 +28,14 @@ console.log(test.removeDuplicate()); // return [1234, 234, 123]
 ```javascript
 const removeArrayDuplicate = require("@hinng/remove_duplicates_array");
 
+const array = ["AA", "AB", "AC", "AD", "AA"];
+let test = new removeArrayDuplicate(array);
+console.log(test.removeDuplicate()); // return ['AA', 'AB', 'AC', 'AD']
+```
+
+```javascript
+const removeArrayDuplicate = require("@hinng/remove_duplicates_array");
+
 const array = [{ a: 1 }, { b: 2 }, { c: 3 }, { a: 1 }];
 let test = new removeArrayDuplicate(array);
 console.log(test.removeDuplicate()); // return [{a: 1}, {b: 2}, {c: 3}]

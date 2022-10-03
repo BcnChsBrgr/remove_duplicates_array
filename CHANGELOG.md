@@ -2,6 +2,8 @@
 
 ## version 1.0.7: (3 Oct 2022)
 
+Summary add CircleCI pipeline
+
 -   add CircleCI pipeline (add testing steps)
 -   add CircleCI shields
 

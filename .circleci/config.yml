@@ -15,22 +15,22 @@ jobs:
             - run:
                   name: list all my file
                   command: ls -al
-            - restore_cache:
-                  keys:
-                      - v1-dependencies-{{ checksum "package.json" }}
-                      - v1-dependencies-
     install-node-example:
         docker:
             - image: "cimg/base:stable"
         resource_class: small
         steps:
+            - restore_cache:
+                  keys:
+                      - v1-{{ checksum "package.json" }}
+                      - v1-
             - node/install:
                   install-yarn: false
                   node-version: "14.13"
             - save_cache:
+                  key: v1-{{ checksum "package.json" }}
                   paths:
-                      - node_modules
-                  key: v1-dependencies-{{ checksum "package.json" }}
+                      - ~/node_modules
             - run: node --version
 workflows:
     test_my_app:

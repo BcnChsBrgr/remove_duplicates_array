@@ -35,7 +35,7 @@ jobs:
         resource_class: small
         steps:
             name: Publish to NPM
-            colland: |
+            command: |
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
             npm publish
 workflows:

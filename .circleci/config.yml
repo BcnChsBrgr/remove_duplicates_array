@@ -1,14 +1,20 @@
 version: 2.1
-orbs:
-    node: circleci/node@5.0.3
-jobs:
-    install-node-example:
+
+executors:
+    docker-executor:
         docker:
             - image: "cimg/base:stable"
         working_directory: ~/repo
         resource_class: small
+orbs:
+    node: circleci/node@5.0.3
+jobs:
+    install-node-example:
+        executor: docker-executor
         steps:
             - checkout
+            - setup_remote_docker:
+                  docker_layer_caching: true
             - run:
                   name: list all my file
                   command: ls -al
@@ -28,11 +34,11 @@ jobs:
                   paths:
                       - node_modules
             - run: node --version
+            - store_artifacts:
+                  path: /tmp/artifact-1
+                  destination: artifact-file
     publish:
-        docker:
-            - image: "cimg/base:stable"
-        working_directory: ~/repo
-        resource_class: small
+        executor: docker-executor
         steps:
             - checkout
             - run:
@@ -60,6 +66,11 @@ workflows:
                       - install-node-example
                   test-results-for: jest
                   test-results-path: junit.xml
+            - hold:
+                  type: approval
+                  requires:
+                      - install-node-example
+                      - node/test
             - publish:
                   requires:
-                      - node/test
+                      - hold

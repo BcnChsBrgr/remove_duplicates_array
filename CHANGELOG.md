@@ -2,7 +2,7 @@
 
 ## version 1.0.7: (3 Oct 2022)
 
--   add CircleCI pipeline
+-   add CircleCI pipeline (add testing steps)
 
 ## version 1.0.4:
 

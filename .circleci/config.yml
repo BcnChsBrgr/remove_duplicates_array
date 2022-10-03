@@ -53,4 +53,6 @@ workflows:
                       - install-node-example
                   test-results-for: jest
                   test-results-path: junit.xml
-            - publish
+            - publish:
+                  requires:
+                      - node/test

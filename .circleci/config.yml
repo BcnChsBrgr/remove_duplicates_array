@@ -35,9 +35,7 @@ jobs:
 workflows:
     test_my_app:
         jobs:
-            - Fetch-Code:
-                  requires:
-                      - greeting
+            - Fetch-Code
             - install-node-example:
                   requires:
                       - Fetch-Code

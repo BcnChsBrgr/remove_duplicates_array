@@ -35,10 +35,14 @@ jobs:
         resource_class: small
         steps:
             - run:
-                name: Publish to NPM
-                command: |
-                npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-                npm publish
+                  name: list all my files
+                  command: |
+                      ls -la
+            - run:
+                  name: Publish to NPM
+                  command: |
+                      npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+                      npm publish
 workflows:
     version: 2
     test_my_app:
@@ -49,6 +53,4 @@ workflows:
                       - install-node-example
                   test-results-for: jest
                   test-results-path: junit.xml
-            - publish:
-                    requires:
-                        - node/test
+            - publish

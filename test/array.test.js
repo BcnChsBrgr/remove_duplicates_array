@@ -15,7 +15,7 @@ test('having test array to string', () => {
 test('having test in string', () => {
     const array = ['AA', 'AB', 'AC', 'AD', 'AB', 'AB'];
     let test = new removeArrayDuplicates(array);
-    expect(test.toArray()).toBe(['AA', 'AB', 'AC', 'AD']);
+    expect(test.removeDuplicate()).toBe(['AA', 'AB', 'AC', 'AD']);
 })
 
 test('remove duplicate element', () => {

@@ -2,24 +2,16 @@ version: 2.1
 orbs:
     node: circleci/node@5.0.3
 jobs:
-    Fetch-Code:
+    install-node-example:
         docker:
             - image: "cimg/base:stable"
-        resource_class: small
         working_directory: ~/repo
+        resource_class: small
         steps:
-            - run:
-                  name: greeting
-                  command: echo 'hello world'
             - checkout
             - run:
                   name: list all my file
                   command: ls -al
-    install-node-example:
-        docker:
-            - image: "cimg/base:stable"
-        resource_class: small
-        steps:
             - restore_cache:
                   keys:
                       - v1-{{ checksum "package.json" }}
@@ -27,18 +19,19 @@ jobs:
             - node/install:
                   install-yarn: false
                   node-version: "14.13"
+            - run:
+                  name: install node_modules
+                  command: npm install
+            - run: ls -la
             - save_cache:
                   key: v1-{{ checksum "package.json" }}
                   paths:
-                      - ~/node_modules
+                      - node_modules
             - run: node --version
 workflows:
     test_my_app:
         jobs:
-            - Fetch-Code
-            - install-node-example:
-                  requires:
-                      - Fetch-Code
+            - install-node-example
             - node/test:
                   requires:
                       - install-node-example

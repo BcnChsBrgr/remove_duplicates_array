@@ -2,25 +2,16 @@ version: 2.1
 orbs:
     node: circleci/node@5.0.3
 jobs:
-    Fetch-Code:
-        docker:
-            - image: "cimg/base:stable"
-        resource_class: small
-        working_directory: ~/repo
-        steps:
-            - run:
-                  name: greeting
-                  command: echo 'hello world'
-            - checkout
-            - run:
-                  name: list all my file
-                  command: ls -al
     install-node-example:
         docker:
             - image: "cimg/base:stable"
         working_directory: ~/repo
         resource_class: small
         steps:
+            - checkout
+            - run:
+                  name: list all my file
+                  command: ls -al
             - restore_cache:
                   keys:
                       - v1-{{ checksum "package.json" }}
@@ -40,10 +31,7 @@ jobs:
 workflows:
     test_my_app:
         jobs:
-            - Fetch-Code
-            - install-node-example:
-                  requires:
-                      - Fetch-Code
+            - install-node-example
             - node/test:
                   requires:
                       - install-node-example

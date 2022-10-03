@@ -30,14 +30,21 @@ jobs:
             - run: node --version
     publish:
         docker:
-            - image: "cimg/node:17.2"
+            - image: "cimg/base:stable"
         working_directory: ~/repo
         resource_class: small
         steps:
+            - checkout
             - run:
                   name: list all my files
                   command: |
                       ls -la
+            - node/install:
+                  install-yarn: false
+                  node-version: "14.13"
+            - run:
+                  name: install node_modules
+                  command: npm install
             - run:
                   name: Publish to NPM
                   command: |

@@ -70,7 +70,6 @@ workflows:
                   type: approval
                   requires:
                       - install-node-example
-                      - node/test
             - publish:
                   requires:
                       - hold

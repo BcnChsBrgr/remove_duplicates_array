@@ -21,7 +21,7 @@ and use the `npm test` for trigger the jest
 will make the inputs returning as a array
 
 `toString()`
-will return the array as string, like A,B,C,D
+will return the array as string, like 'A,B,C,D'
 
 ```javascript
 const removeArrayDuplicate = require("@hinng/remove_duplicates_array");

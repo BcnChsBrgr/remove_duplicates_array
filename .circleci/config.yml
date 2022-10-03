@@ -19,9 +19,9 @@ jobs:
             - node/install:
                   install-yarn: false
                   node-version: "14.13"
-            - node/install-packages:
-                  cache-path: ~/node_modules
-                  override-ci-command: npm intstall
+            - run:
+                  name: install node_modules
+                  command: npm install
             - run: ls -la
             - save_cache:
                   key: v1-{{ checksum "package.json" }}

@@ -18,6 +18,7 @@ jobs:
     install-node-example:
         docker:
             - image: "cimg/base:stable"
+        working_directory: ~/repo
         resource_class: small
         steps:
             - restore_cache:
@@ -27,10 +28,14 @@ jobs:
             - node/install:
                   install-yarn: false
                   node-version: "14.13"
+            - node/install-packages:
+                  cache-path: ~/node_modules
+                  override-ci-command: npm intstall
+            - run: ls -la
             - save_cache:
                   key: v1-{{ checksum "package.json" }}
                   paths:
-                      - ~/node_modules
+                      - node_modules
             - run: node --version
 workflows:
     test_my_app:

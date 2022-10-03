@@ -34,11 +34,13 @@ jobs:
         working_directory: ~/repo
         resource_class: small
         steps:
-            name: Publish to NPM
-            command: |
-            npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            npm publish
+            - run:
+                name: Publish to NPM
+                command: |
+                npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+                npm publish
 workflows:
+    version: 2
     test_my_app:
         jobs:
             - install-node-example

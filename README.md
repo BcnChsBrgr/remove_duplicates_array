@@ -17,6 +17,12 @@ This is the array that handle duplicate item, either objects are inside the arra
 To test this code you can see the test case in `test/array.test.js`,
 and use the `npm test` for trigger the jest
 
+`toArray()`
+will make the inputs returning as a array
+
+`toString()`
+will return the array as string, like 'A,B,C,D'
+
 ```javascript
 const removeArrayDuplicate = require("@hinng/remove_duplicates_array");
 

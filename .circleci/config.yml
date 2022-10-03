@@ -30,7 +30,7 @@ jobs:
             - run: node --version
     publish:
         docker:
-            - image: "cimg/base:stable"
+            - image: "cimg/node:17"
         working_directory: ~/repo
         resource_class: small
         steps:

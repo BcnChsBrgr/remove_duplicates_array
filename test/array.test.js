@@ -12,6 +12,12 @@ test('having test array to string', () => {
     expect(test.toString()).toBe('1234,234,123,1234');
 });
 
+test('having test in string', () => {
+    const array = ['AA', 'AB', 'AC', 'AD', 'AB', 'AB'];
+    let test = new removeArrayDuplicates(array);
+    expect(test.toArray()).toBe(['AA', 'AB', 'AC', 'AD']);
+})
+
 test('remove duplicate element', () => {
     const array = [1234, 234, 123, 1234];
     const expected = [1234, 234, 123];

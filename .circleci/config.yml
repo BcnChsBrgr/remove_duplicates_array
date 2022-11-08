@@ -59,7 +59,7 @@ jobs:
                     - run: echo 'flyway execute'
                     - run: echo "flyway execute here"
             - run: echo 0
-    publish [ci skip]:
+    publish:
         executor: docker-executor
         steps:
             - checkout
@@ -95,6 +95,9 @@ workflows:
             - publish:
                   requires:
                       - hold
+                  filters:
+                      branches: 
+                          only: master
     test_deploy_flyway:
         when: << pipeline.parameters.run_flyway >>
         jobs:

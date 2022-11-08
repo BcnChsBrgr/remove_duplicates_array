@@ -26,7 +26,6 @@ jobs:
             - run: 
                   name: list circle token
                   command: echo ${CIRCLECI_TOKEN}
-            # - run: curl -u ${CIRCLECI_TOKEN} -X POST --header 'Content-Type: application/json' -d '{"parameters": {"run_flyway": ${FLYWAY_EXECUTE} }}' https://circleci.com/api/v2/project/:project_slug/pipeline    
             - restore_cache:
                   keys:
                       - v1-{{ checksum "package.json" }}
@@ -60,8 +59,6 @@ jobs:
                     - run: echo "flyway execute here"
             - run: echo 0
     publish:
-        build:
-            circleci_ip_ranges: true
         executor: docker-executor
         steps:
             - checkout

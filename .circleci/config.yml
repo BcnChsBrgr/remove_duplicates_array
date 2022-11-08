@@ -37,6 +37,18 @@ jobs:
             - store_artifacts:
                   path: /tmp/artifact-1
                   destination: artifact-file
+    test_to_run:
+        executor: docker-executor
+        steps:
+            - checkout
+            - run: echo 'this is test_to_run step'
+            - run: ls
+            - when:
+                condition:
+                    equals: [ true, $FLYWAY_EXECUTE ]
+                steps:
+                    - run: echo 'flyway execute'
+            - run: echo 0
     publish:
         executor: docker-executor
         steps:
@@ -61,6 +73,7 @@ workflows:
     test_my_app:
         jobs:
             - install-node-example
+            - test_to_run
             - node/test:
                   requires:
                       - install-node-example

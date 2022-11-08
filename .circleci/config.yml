@@ -45,7 +45,7 @@ jobs:
             - run: ls
             - when:
                 condition:
-                    equals: [ true, $FLYWAY_EXECUTE ]
+                    equals: [ 'true', $FLYWAY_EXECUTE ]
                 steps:
                     - run: echo 'flyway execute'
             - run: echo 0

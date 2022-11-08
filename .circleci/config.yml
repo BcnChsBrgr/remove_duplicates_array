@@ -91,4 +91,4 @@ workflows:
             - test_to_run
         when:
             condition:
-                equals: [true, $FLYWAY_EXECUTE]
+                equal: [true, $FLYWAY_EXECUTE ]

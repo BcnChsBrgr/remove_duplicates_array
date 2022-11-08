@@ -74,7 +74,6 @@ workflows:
     test_my_app:
         jobs:
             - install-node-example
-            - test_to_run
             - node/test:
                   requires:
                       - install-node-example
@@ -87,3 +86,9 @@ workflows:
             - publish:
                   requires:
                       - hold
+    test_deploy_flyway:
+        jobs:
+            - test_to_run
+        when:
+            condition:
+                equals: [true, $FLYWAY_EXECUTE]

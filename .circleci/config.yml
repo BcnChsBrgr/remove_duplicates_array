@@ -60,6 +60,8 @@ jobs:
                     - run: echo "flyway execute here"
             - run: echo 0
     publish:
+        build:
+            circleci_ip_ranges: true
         executor: docker-executor
         steps:
             - checkout
@@ -89,6 +91,7 @@ workflows:
                       - install-node-example
                   test-results-for: jest
                   test-results-path: ~/project/testingResult/junit.xml
+
             - hold:
                   type: approval
                   requires:

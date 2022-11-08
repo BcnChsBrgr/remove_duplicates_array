@@ -11,6 +11,7 @@ executors:
             - image: "cimg/base:stable"
         working_directory: ~/repo
         resource_class: small
+        
 orbs:
     node: circleci/node@5.0.3
 jobs:
@@ -87,7 +88,7 @@ workflows:
                   requires:
                       - install-node-example
                   test-results-for: jest
-                  test-results-path: ~/project/testingResult/junit.xml
+                  test-results-path: ~/junit.xml
 
             - hold:
                   type: approval

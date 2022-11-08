@@ -48,6 +48,7 @@ jobs:
                     equals: [ 'true', $FLYWAY_EXECUTE ]
                 steps:
                     - run: echo 'flyway execute'
+                    - run: echo "flyway execute $FLYWAY_EXECUTE"
             - run: echo 0
     publish:
         executor: docker-executor

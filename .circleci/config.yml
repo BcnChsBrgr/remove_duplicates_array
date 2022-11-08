@@ -3,7 +3,7 @@ version: 2.1
 parameters:
     run_flyway:
         type: boolean
-        default: false
+        default: true
         
 executors:
     docker-executor:
@@ -101,4 +101,7 @@ workflows:
     test_deploy_flyway:
         when: << pipeline.parameters.run_flyway >>
         jobs:
-            - test_to_run
+            - test_to_run:
+                filters:
+                    branches:
+                        only: circleci-editor/344/main

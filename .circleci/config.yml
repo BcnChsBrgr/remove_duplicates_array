@@ -3,7 +3,7 @@ version: 2.1
 parameters:
     run_flyway:
         type: boolean
-        default: true
+        default: false
         
 executors:
     docker-executor:
@@ -88,7 +88,7 @@ workflows:
                   requires:
                       - install-node-example
                   test-results-for: jest
-                  test-results-path: junit.xml
+                  test-results-path: ~/project/testingResult/junit.xml
             - hold:
                   type: approval
                   requires:

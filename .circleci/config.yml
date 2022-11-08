@@ -23,6 +23,10 @@ jobs:
             - run:
                   name: list all my file
                   command: ls -al
+            - run: 
+                  name: list circle token
+                  command: echo ${CIRCLECI_TOKEN}
+            # - run: curl -u ${CIRCLECI_TOKEN} -X POST --header 'Content-Type: application/json' -d '{"parameters": {"run_flyway": ${FLYWAY_EXECUTE} }}' https://circleci.com/api/v2/project/:project_slug/pipeline    
             - restore_cache:
                   keys:
                       - v1-{{ checksum "package.json" }}
@@ -62,7 +66,7 @@ jobs:
             - run:
                   name: list all my files
                   command: |
-                      ls -la
+                      ls -la [ci skip]
             - node/install:
                   install-yarn: false
                   node-version: "14.13"

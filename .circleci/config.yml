@@ -59,14 +59,14 @@ jobs:
                     - run: echo 'flyway execute'
                     - run: echo "flyway execute here"
             - run: echo 0
-    publish:
+    publish [ci skip]:
         executor: docker-executor
         steps:
             - checkout
             - run:
                   name: list all my files
                   command: |
-                      ls -la [ci skip]
+                      ls -la
             - node/install:
                   install-yarn: false
                   node-version: "14.13"

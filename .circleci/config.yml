@@ -1,5 +1,10 @@
 version: 2.1
 
+parameters:
+    run_flyway:
+        type: boolean
+        default: false
+        
 executors:
     docker-executor:
         docker:
@@ -45,10 +50,10 @@ jobs:
             - run: ls
             - when:
                 condition:
-                    equals: [ 'true', $FLYWAY_EXECUTE ]
+                    equals: [ 'true', $<< pipeline.parameters.run_flyway >> ]
                 steps:
                     - run: echo 'flyway execute'
-                    - run: echo "flyway execute $FLYWAY_EXECUTE"
+                    - run: echo "flyway execute here"
             - run: echo 0
     publish:
         executor: docker-executor
@@ -87,8 +92,6 @@ workflows:
                   requires:
                       - hold
     test_deploy_flyway:
+        when: << pipeline.parameters.run_flyway >>
         jobs:
             - test_to_run
-        when:
-            condition:
-                equal: [true, $FLYWAY_EXECUTE ]

@@ -84,6 +84,7 @@ workflows:
         jobs:
             - install-node-example
             - node/test:
+                  name: store_test_results
                   requires:
                       - install-node-example
                   test-results-for: jest

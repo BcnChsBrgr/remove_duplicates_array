@@ -88,8 +88,7 @@ workflows:
                   requires:
                       - install-node-example
                   test-results-for: jest
-                  test-results-path: ~/junit.xml
-
+                  test-results-path: ./junit.xml
             - hold:
                   type: approval
                   requires:
